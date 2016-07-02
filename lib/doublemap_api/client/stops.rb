@@ -4,7 +4,7 @@ module DoubleMap
 
     # Return a list of all stops on the system.
     def list
-      get_request('/stops').map{ |stop| Stop.new(stop) }
+      get_request('/map/v2/stops').map{ |stop| Stop.new(stop) }
     end
     memoize :list
     alias_method :all, :list

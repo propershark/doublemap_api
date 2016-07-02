@@ -1,7 +1,7 @@
 require_relative '../lib/doublemap_api.rb'
 
 DoubleMap.configure do |config|
-  config.base_uri     = 'http://citybus.doublemap.com/map/v2'
+  config.base_uri     = 'http://citybus.doublemap.com/'
   config.adapter      = :httparty
   config.debug_output = false
 end
