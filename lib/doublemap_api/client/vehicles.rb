@@ -4,7 +4,7 @@ module DoubleMap
 
     # Return a list of all vehicles currently traveling on routes.
     def list
-      get_request('/map/v2/buses').map{ |vehicle| Vehicle.new(vehicle) }.map(&vehicle_map)
+      get_request('/map/v2/buses').map{ |vehicle| Vehicle.new(vehicle) }.each(&on_vehicle)
     end
     memoize :list
     alias_method :all, :list
@@ -18,8 +18,8 @@ module DoubleMap
 
     private
 
-    def vehicle_map
-      DoubleMap.configuration.vehicle_map
+    def on_vehicle
+      DoubleMap.configuration.on_vehicle
     end
   end
 end

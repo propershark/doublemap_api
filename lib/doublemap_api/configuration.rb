@@ -8,18 +8,18 @@ module DoubleMap
     attr_accessor :adapter
     # The output stream to which debug information should be written
     attr_accessor :debug_output
-    # Procs to transform route, stop, or vehicle objects before being returned
-    # to a caller
-    attr_accessor :route_map, :stop_map, :vehicle_map
+    # Optional procs called when a corresponding model object is created,
+    # before it is returned to a caller.
+    attr_accessor :on_route, :on_stop, :on_vehicle
 
     # The defaults to use for any configuration options that are not provided
     DEFAULT_CONFIGURATION = {
       version: '3.2', # Taken from a comment on "http://bus.gocitybus.com/RouteMap/Index"
       adapter: :httparty,
       debug_output: false,
-      route_map: ->(r){ r },
-      stop_map: ->(s){ s },
-      vehicle_map: ->(v){ v },
+      on_route: ->(_){},
+      on_stop: ->(_){},
+      on_vehicle: ->(_){},
     }
 
     # The options required when configuring a DoubleMap instance
