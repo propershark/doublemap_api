@@ -15,6 +15,3 @@ puts double_map.routes.get(v.route).name
 r.stops.each do |stop_id|
   puts double_map.stops.get(stop_id).name
 end
-
-require 'pry'; binding.pry
-puts 'exit'
