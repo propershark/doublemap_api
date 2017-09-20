@@ -4,7 +4,7 @@ module DoubleMap
 
     # Return a list of all routes on the system.
     def list
-      get_request('/map/v2/routes').map{ |route| Route.new(route) }
+      get_request('/map/v2/routes').map{ |route| Route.new(route) }.each(&on_route)
     end
     memoize :list
     alias_method :all, :list
@@ -15,5 +15,11 @@ module DoubleMap
     end
     memoize :get
     alias_method :find, :get
+
+    private
+
+    def on_route
+      DoubleMap.configuration.on_route
+    end
   end
 end
