@@ -17,9 +17,9 @@ module DoubleMap
       version: '3.2', # Taken from a comment on "http://bus.gocitybus.com/RouteMap/Index"
       adapter: :httparty,
       debug_output: false,
-      on_route: ->(_){},
-      on_stop: ->(_){},
-      on_vehicle: ->(_){},
+      on_route: ->(route){},
+      on_stop: ->(stop){},
+      on_vehicle: ->(vehicle){},
     }
 
     # The options required when configuring a DoubleMap instance
